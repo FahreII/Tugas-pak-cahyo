@@ -4,15 +4,11 @@ from tkinter import messagebox
 def login():
     try:
         user = entry_user.get()
-        pwd = entry_pass.get()
+        pwd = int(entry_pass.get())
 
-        if user == "" or pwd == "":
-            raise ValueError("kosong")
-        pwd_angka = int(pwd)
-
-        if user == "a" and pwd_angka == 1:
+        if user == "a" and pwd == 1:
             messagebox.showinfo("Login", "Login Berhasil!")
-        else:
+        elif user >= "a":
             messagebox.showerror("Login", "Username atau Password salah")
 
     except ValueError:
@@ -35,7 +31,7 @@ tk.Label(root, text="Password").pack()
 entry_pass = tk.Entry(root,show="•", width=30)
 entry_pass.pack()
 
-tk.Button(root, text="Log in",bg="#1581BF",width=25, command=login).pack(pady=10)
+tk.Button(root, text="Log in",bg="#1581BF",width=25,command=login).pack(pady=10)
 tk.Label(root, text="Lupa kata sandi",fg="#229FE7",pady=20,).pack()
 
 root.mainloop()
