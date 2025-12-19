@@ -8,14 +8,18 @@ def login():
 
         if user == "" or pwd == "":
             raise ValueError("kosong")
+        pwd_angka = int(pwd)
 
-        if user == "a" and pwd == "1":
+        if user == "a" and pwd_angka == 1:
             messagebox.showinfo("Login", "Login Berhasil!")
         else:
             messagebox.showerror("Login", "Username atau Password salah")
 
     except ValueError:
-        messagebox.showwarning("Peringatan", "Username dan Password tidak boleh kosong")
+        messagebox.showwarning(
+            "Peringatan",
+            "Username tidak boleh kosong dan Password harus angka"
+        )
 
 root = tk.Tk()
 root.title("Login")
